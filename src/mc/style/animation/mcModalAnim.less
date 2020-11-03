@@ -1,0 +1,31 @@
+@animTime:0.15s;
+
+.mcModalAnim-enter-active{
+  animation: mcModalAnimFadeIn @animTime forwards;
+}
+
+.mcModalAnim-leave-active{
+  animation: mcModalAnimFadeOut @animTime forwards;
+}
+
+@keyframes mcModalAnimFadeIn {
+  0% {
+    transform: translate3d(0, -20px, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes mcModalAnimFadeOut {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, -20px, 0);
+    opacity: 0;
+  }
+}

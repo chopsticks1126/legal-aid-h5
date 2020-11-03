@@ -1,0 +1,78 @@
+// Grid system
+// --------------------------------------------------
+@grid-gutter-width:16px;
+@grid-columns: 12;
+
+// --适用于 col-@index
+.make-grid-columns() {
+    .col(@index) { // initial
+        @item: ~".col-@{index}";
+        .col((@index + 1), @item);
+    }
+    .col(@index, @list) when (@index =< @grid-columns) { // general
+        @item: ~".col-@{index}";
+        .col((@index + 1), ~"@{list}, @{item}");
+    }
+    .col(@index, @list) when (@index > @grid-columns) { // terminal
+        @{list} {
+            float: left;
+
+            // Inner gutter via padding
+            //padding-left:  ceil((@grid-gutter-width / 2));
+            //padding-right: floor((@grid-gutter-width / 2));
+        }
+    }
+    .col(1); // kickstart it
+}
+
+//-------------
+
+.row {
+    &:extend(.clearfix all);
+    position: relative;
+    height: auto;
+    zoom: 1;
+    display: block;
+}
+
+.make-grid-columns();
+
+//设置宽度
+.calc-grid-column-width(@index) when (@index > 0) {
+    .col-@{index} {
+        width: percentage((@index / @grid-columns));
+    }
+}
+
+.loop-grid-columns-core (@index) when (@index >= 0) {
+    .calc-grid-column-width(@index);
+    // next iteration
+    .loop-grid-columns-core((@index - 1));
+}
+
+.loop-grid-columns-core(@grid-columns);
+
+.row.gutter{
+    margin-left: ceil(@grid-gutter-width / -2);
+    margin-right: floor(@grid-gutter-width / -2);
+}
+
+.row.gutter > [class^="col-"]{
+    padding-left:  ceil((@grid-gutter-width / 2));
+    padding-right: floor((@grid-gutter-width / 2));
+}
+
+//[class^="icon-"],
+//[class*=" icon-"] {
+//
+//}
+
+.col-gutter{
+    padding-left:  ceil((@grid-gutter-width / 2));
+    padding-right: floor((@grid-gutter-width / 2));
+}
+
+
+
+
+

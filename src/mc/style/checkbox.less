@@ -1,0 +1,51 @@
+@import "./fn";
+
+.mc-cell-checkbox {
+    padding: @mcCellGapV @mcCellGapH;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .setTapColor();
+
+    &:before{
+        .setTopLine(@mcCellBorderColor);
+        left: @mcCellGapH;
+    }
+
+    &:not('disabled'):active{
+        background-color: #ECECEC;
+    }
+
+    &.disabled{
+
+    }
+
+    .hd {
+        font-size: 0;
+        padding-right: 0.16rem;
+    }
+
+    .bd {
+        flex: 1;
+    }
+
+    input[type="checkbox"]{
+        position: absolute;
+        left: -9999em;
+    }
+
+    /*unchecked*/
+    .mc-checkbox-icon:before {
+        content: "\e6d7";
+        color: #C9C9C9;
+        font-size: 0.22rem;
+        display: block;
+    }
+
+    /*checked*/
+    input[type="checkbox"]:checked:checked + .mc-checkbox-icon:before {
+        content: "\e656";
+        color: @globalPrimaryColor;
+    }
+}

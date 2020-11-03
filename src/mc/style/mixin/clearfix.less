@@ -1,0 +1,14 @@
+.clear() {
+    &:after,
+    &:before {
+        display: table;
+        content: " "
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+.clearfix{
+    .clear()
+}

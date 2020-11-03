@@ -1,0 +1,108 @@
+.scale-enter-active, .scale-leave-active {
+    transition: all .3s;
+}
+
+.scale-enter, .scale-leave-to /* .fade-leave-active in below version 2.1.8 */
+{
+    transform: scale(0);
+}
+
+.preview_wrapper {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: rgba(0, 0, 0, .8);
+    color: #fff;
+    .preview_top-label {
+        font-size: 16px;
+        line-height: 40px;
+        padding: 0 20px;
+        display: table;
+        width: 100%;
+        box-sizing: border-box;
+        // table-layout:fixed;
+        span {
+            display: table-cell;
+            white-space: nowrap;
+        }
+        .preview_top-close {
+            font-size: 30px;
+            cursor: pointer;
+        }
+        .preview_top-center {
+            font-siz: 14px;
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+    .preview_img-wrapper {
+        margin: 0 2vw;
+        box-sizing: border-box;
+        height: 80vh;
+        left: 0;
+        right: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+        position: absolute;
+        overflow: hidden;
+        .preview_img {
+            transition: left .3s;
+
+            width: 100%;
+            height: 100%;
+
+            position: absolute;
+            .preview_img-item {
+                position: relative;
+                overflow: hidden;
+                float: left;
+                height: 100%;
+                width: 96vw;
+                img {
+                    max-width: none;
+                    max-height: none;
+                    position: absolute;
+
+                    &.img-transition {
+                        transition: all .3s ease-out;
+                    }
+                }
+            }
+        }
+    }
+
+    .preview_panel {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        line-height: 10vh;
+        position: absolute;
+        text-align: center;
+        .component_icon {
+            font-size: 22px;
+        }
+        span {
+            margin: 5px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-block;
+            vertical-align: center;
+            background: rgba(0, 0, 0, .6);
+            line-height: 30px;
+            cursor: pointer;
+            &:hover {
+                background: #000;
+            }
+        }
+        .hide {
+            cursor: default;
+            opacity: 0;
+        }
+
+    }
+
+}

@@ -1,0 +1,29 @@
+//从上面滑入 ，  离开时  -> 向上部收缩离开
+//<transition name="mcSlideDownUp">
+
+@animTime:0.3s;
+
+.mcSlideDownUp-enter-active{
+  animation: mcSlideDownUpIn @animTime forwards;
+}
+.mcSlideDownUp-leave-active{
+  animation: mcSlideDownUpOut @animTime forwards;
+}
+
+@keyframes mcSlideDownUpIn {
+  0%{
+    transform: translate(0, -100%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes mcSlideDownUpOut {
+  0%{
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, -100%);
+  }
+}

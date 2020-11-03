@@ -1,0 +1,141 @@
+@import "../../style/fn.less";
+
+@selectCellHeight: 0.42rem;
+
+.mc-cell-select {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: @mcCellFontSize;
+    min-height: @selectCellHeight;
+    padding-left: 0.15rem;
+
+    //&:after {
+    //    .setBottomLine(@mcCellBorderColor);
+    //    left: @mcCellGapH;
+    //}
+    //
+
+    &.mc-cell-select-border-bottom:after{
+        .setBottomLine(@mcCellBorderColor);
+        left: @mcCellGapH;
+    }
+
+    &.mc-cell-select-border-top:before{
+        .setTopLine(@mcCellBorderColor);
+        left: @mcCellGapH;
+    }
+
+    .hd {
+        height: 100%;
+        line-height: @selectCellHeight;
+    }
+
+    .bd {
+        height: 100%;
+        flex: 1;
+        position: relative;
+        line-height: @selectCellHeight;
+        padding-right: 0.15rem;
+    }
+
+    label {
+        display: block;
+        width: @mcCellLabelWidth;
+        font-size: inherit;
+        .text_wrap();
+    }
+
+    .show-text{
+        text-align: right;
+
+    }
+
+    .mc-select-inner {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        border: 0;
+        outline: 0;
+        -webkit-appearance: none;
+        background-color: transparent;
+        font-size: inherit;
+        color: #303030;
+        //height: unit(@mcCellLineHeight, em);
+        height: 100%;
+        opacity: 0;
+    }
+
+    .clearicon {
+        color: #999;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        z-index: 1;
+        display: block;
+        text-align: center;
+        width: 24px;
+        z-index: 1;
+    }
+
+    &.mc-cell-select-full .mc-select-inner {
+        text-align: left;
+    }
+
+
+}
+
+//access
+.mc-cell-select-access {
+
+    .show-text{
+        padding-right: 0.2rem;
+    }
+
+    .access-arrow {
+        position: absolute;
+        right: .15rem;
+        width: 0.16rem;
+    }
+
+    .access-arrow:after {
+        content: " ";
+        .setArrow_Wap(right, 0.1rem, #C4C4C4, 1px);
+        position: absolute;
+        top: 50%;
+        margin-top: -0.05rem;
+        right: 0.02rem;
+    }
+}
+
+.mc-cell-select-disabled {
+    color: #aaa;
+    .hd {
+        color: #aaa;
+    }
+    .bd {
+        color: #aaa;
+    }
+}
+
+.mc-cell-select-showclear {
+    .show-text{
+        position: relative;
+        padding-right: 0.3rem;
+    }
+    .bd {
+        padding-right: 0.3rem;
+    }
+}
+
+.mc-cell-select-msg{
+    padding-left: 0.15rem;
+    padding-right: 0.15rem;
+    padding-bottom: 0.1rem;
+    font-size:  0.12rem;
+    line-height: 1.25;
+    color: @globalErrorColor;
+    word-break: break-all;
+}

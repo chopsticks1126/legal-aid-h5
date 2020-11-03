@@ -1,0 +1,93 @@
+@import "../style/fn";
+
+.mc-modal-body-fixed{
+    overflow: hidden;
+    touch-action: none;
+}
+
+.mc-bottom-modal-wrap{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    overflow: hidden;
+    background-color: rgba(0,0,0,.5);
+}
+
+.mc-bottom-modal-bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    background-color: rgba(0,0,0,.1);
+    z-index: 199;
+}
+
+.mc-bottom-modal{
+    position: fixed;
+    width:100%;
+    min-height: 1rem;
+    bottom: 0;
+    z-index: 200;
+    background-color: #fff;
+
+    .hd{
+        height: 0.5rem;
+        background-color: #fff;
+        color: @globalTextColor;
+        border-bottom: 1px solid #eee;
+        text-align:center;
+        line-height: 0.5rem;
+
+        padding: 0 0.6rem;
+        font-weight: 400;
+        font-size: 0.17rem;
+        .ellipsis();
+
+        position: relative;
+    }
+
+    .closeicon{
+        position: absolute;
+        right: 0;
+        top: 0px;
+        font-size:0.28rem;
+        text-align: center;
+        display: block;
+        width: 0.5rem;
+        height: 0.50rem;
+        line-height: 0.5rem;
+        color: #6c8196;
+        z-index: 101;
+    }
+
+    .cancel-text{
+        position: absolute;
+        left: 0.2rem;
+        color: @globalDescColor;
+        font-size: 0.14rem;
+    }
+
+    .confirm-text{
+        position: absolute;
+        right: 0.2rem;
+        color: @globalDescColor;
+
+    }
+
+    .bd{
+        position: relative;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+    }
+
+}
+

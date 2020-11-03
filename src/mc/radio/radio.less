@@ -1,0 +1,76 @@
+@import "../style/fn.less";
+
+.mc-cell-radio {
+    padding: @mcCellGapV @mcCellGapH;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .setTapColor();
+
+    &:after{
+        .setBottomLine(@mcCellBorderColor);
+        left: @mcCellGapH;
+    }
+    &.disabled{
+    }
+
+    &:active{
+        background-color: #ECECEC;
+    }
+
+    .hd{
+        padding-right: 0.16rem;
+    }
+
+    .bd {
+        flex: 1;
+    }
+
+    .ft {
+        text-align: right;
+        color: @globalTextColor;
+        padding-left: @mcCellInnerGapH;
+    }
+
+    input {
+        position: absolute;
+        left: -9999em;
+    }
+
+    .mc-cell-radio-icon-check {
+        //position: absolute;
+        //right: 0.15rem;
+        //color: @globalPrimaryColor;
+        //font-size: 0.24rem;
+        //line-height: 0.24rem;
+        //top: 50%;
+        //margin-top: -0.12rem;
+    }
+
+    //.mc-cell-radio-icon-check:before{
+    //    content: "\E645";
+    //    color: @globalPrimaryColor;
+    //    font-size: 0.24rem;
+    //    display: none;
+    //}
+    //
+    //input:checked + .mc-cell-radio-icon-check:before {
+    //    display: block;
+    //}
+    //
+
+    .mc-cell-radio-icon-check:before {
+        content: "\e6d7";
+        color: #C9C9C9;
+        font-size: 0.22rem;
+        display: block;
+    }
+
+    input:checked + .mc-cell-radio-icon-check:before {
+        content: "\e656";
+        color: @globalPrimaryColor;
+    }
+
+
+}

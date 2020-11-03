@@ -1,0 +1,63 @@
+@import "../style/fn.less";
+
+.mc-cell-textarea {
+    padding: @mcCellGapV @mcCellGapH;
+    position: relative;
+    font-size: @mcCellFontSize;
+    display: block;
+
+    &.mc-cell-textarea-border:after{
+        .setBottomLine(@mcCellBorderColor);
+        left: @mcCellGapH;
+    }
+
+    .hd {
+        display: block;
+        font-size: inherit;
+        margin-bottom: 10px;
+        .text_wrap();
+    }
+
+    .bd{
+        position: relative;
+        padding: 10px;
+        border-radius: 10px;
+        height: 100px;
+        &:after {
+            content: " ";
+            width: 200%;
+            height: 200%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 1px solid rgba(0, 0, 0, .2);
+            transform: scale(.5);
+            transform-origin: 0 0;
+            box-sizing: border-box;
+            border-radius: 10px;
+
+        }
+    }
+
+    textarea {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        outline: 0;
+        -webkit-appearance: none;
+        background-color: transparent;
+        font-size: inherit;
+        color: #303030;
+        line-height: @mcCellLineHeight;
+        text-align: left;
+    }
+}
+
+.mc-cell-textarea-disabled {
+    label{
+        color: #aaa;
+    }
+    textarea{
+        color: #aaa;
+    }
+}

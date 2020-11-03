@@ -1,0 +1,261 @@
+@import "./fn";
+
+@btnDefaultFontColor: #454545;
+@btnDefaultBorderColor: #bfcbd9;
+
+@btnDisabledFontColor: #C9C9C9;
+@btnDisabledBgColor: #eef1f6;
+@btnDisabledBorderColor: #eef1f6;
+
+@btnActiveFontColor: #A1A1A1;
+
+@btnDefaultGap: 0.10rem;
+@btnBorderRadius: 0.05rem;
+
+@btnFontSize: 0.14rem;
+@btnPaddingVertical: 0.12rem;
+@btnPaddingHorizontal: 0.15rem;
+
+@btnMiniFontSize: 0.12rem;
+@btnMiniPaddingVertical: 0.04rem;
+@btnMiniPaddingHorizontal: 0.04rem;
+
+@btnSmallFontSize: 0.12rem;
+@btnSmallPaddingVertical: 0.07rem;
+@btnSmallPaddingHorizontal: 0.09rem;
+
+@btnLargeFontSize: 0.16rem;
+@btnLargePaddingVertical: 0.14rem;
+@btnLargePaddingHorizontal: 0.19rem;
+
+button.mc-btn,
+input.mc-btn {
+    border-width: 0;
+    outline: 0;
+    -webkit-appearance: none;
+    &:focus {
+        outline: 0;
+    }
+}
+
+.mc-btn {
+    position: relative;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+
+    padding: @btnPaddingVertical @btnPaddingHorizontal;
+    font-size: @btnFontSize;
+
+    text-align: center;
+    text-decoration: none;
+    color: @btnDefaultFontColor;
+    line-height: 1;
+    border-radius: @btnBorderRadius;
+    .setTapColor();
+    overflow: hidden;
+
+    &:after {
+        content: " ";
+        width: 200%;
+        height: 200%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 1px solid rgba(0, 0, 0, .2);
+        transform: scale(.5);
+        transform-origin: 0 0;
+        box-sizing: border-box;
+        border-radius: @btnBorderRadius*2;
+    }
+}
+
+//size    large small  mini
+.createBtnSize(@fontSize,@paddingVertical,@paddingHorizontal) {
+    padding: @paddingVertical @paddingHorizontal;
+    font-size: @fontSize
+}
+
+.mc-btn-large {
+    padding: @btnLargePaddingVertical @btnLargePaddingHorizontal;
+    font-size: @btnLargeFontSize
+}
+
+.mc-btn-small {
+    padding: @btnSmallPaddingVertical @btnSmallPaddingHorizontal;
+    font-size: @btnSmallFontSize
+}
+
+.mc-btn-mini {
+    padding: @btnMiniPaddingVertical @btnMiniPaddingHorizontal;
+    font-size: @btnMiniFontSize
+}
+
+//type  default primary  success  warning info  error  text
+
+.setDisabled() {
+    &.mc-btn-disabled,
+    &:disabled {
+        color: @btnDisabledFontColor;
+        background-color: @btnDisabledBgColor;
+        &:after {
+            border-color: @btnDisabledBorderColor;
+        }
+        &:hover {
+            cursor: not-allowed;
+        }
+    }
+}
+
+/*mixin*/
+//颜色
+.setDarkBtnColor(@bgColor,@fontColor:#fff) {
+    background-color: @bgColor;
+    color: @fontColor;
+
+    &:visited,
+    &:active {
+        color: @fontColor;
+        background-color: @bgColor;
+    }
+
+    &:after {
+        border-color: @bgColor;
+    }
+
+    &:hover {
+        color: lighten(@fontColor, 5%);
+        background-color: lighten(@bgColor, 3%);
+    }
+
+}
+
+.setBtnPlain(@mainColor) {
+
+    &.mc-btn-plain {
+
+        color: @mainColor;
+        background-color: #fff;
+
+        &:after {
+            border-color: @mainColor;
+        }
+
+        &:visited,
+        &:active {
+            color: #fff;
+            background-color: @mainColor;
+            &:after {
+                border-color: @mainColor;
+            }
+        }
+
+        &:hover {
+            color: #fff;
+            background-color: @mainColor;
+            &:after {
+                border-color: @mainColor;
+            }
+        }
+
+        &.mc-btn-disabled,
+        &:disabled {
+            opacity: 0.6;
+        }
+
+        .setDisabled();
+    }
+}
+
+.mc-btn-default {
+    color: @btnDefaultFontColor;
+    background-color: #fff;
+
+    &:visited,
+    &:active {
+        color: @btnDefaultFontColor;
+        background-color: #fff;
+    }
+    &:after {
+        border-color: @btnDefaultBorderColor;
+    }
+    &:hover {
+        color: @globalPrimaryColor;
+        &:after {
+            border-color: @globalPrimaryColor;
+        }
+    }
+
+    &.mc-btn-disabled {
+        color: @btnDisabledFontColor;
+        background-color: #fff;
+        &:after {
+            border-color: @btnDisabledBorderColor;
+        }
+    }
+}
+
+.mc-btn-text {
+    color: @globalPrimaryColor;
+    background-color: transparent;
+
+    &:visited,
+    &:active {
+        color: @globalPrimaryColor;
+        background-color: transparent;
+    }
+    &:after {
+        border-color: transparent;
+    }
+    &:hover {
+        color: lighten(@globalPrimaryColor, 5%);
+    }
+
+    &.mc-btn_disabled {
+        color: @btnDisabledFontColor;
+    }
+}
+
+.mc-btn-primary {
+    .setDarkBtnColor(@globalPrimaryColor, #FFF);
+
+    background-color: -webkit-linear-gradient(#38C61D, #29B30F); /* Safari 5.1 - 6.0 */
+    background-color: -o-linear-gradient(#38C61D, #29B30F); /* Opera 11.1 - 12.0 */
+    background-color: -moz-linear-gradient(#38C61D, #29B30F); /* Firefox 3.6 - 15 */
+    background-color: linear-gradient(#38C61D, #29B30F); /* 标准的语法 */
+
+    .setBtnPlain(@globalPrimaryColor);
+
+    &.mc-btn-disabled,
+    &:disabled {
+        color: #fff;
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+}
+
+.mc-btn-success {
+    .setDarkBtnColor(@globalSuccessColor, #FFF);
+    .setBtnPlain(@globalSuccessColor);
+}
+
+.mc-btn-info {
+    .setDarkBtnColor(@globalInfoColor, #FFF);
+    .setBtnPlain(@globalInfoColor);
+}
+
+.mc-btn-warning {
+    .setDarkBtnColor(@globalWarningColor, #FFF);
+    .setBtnPlain(@globalWarningColor);
+}
+
+.mc-btn-error {
+    .setDarkBtnColor(@globalErrorColor, #FFF);
+    .setBtnPlain(@globalErrorColor);
+}
+
+.mc-btn-block {
+    display: block;
+    width: 100%;
+}

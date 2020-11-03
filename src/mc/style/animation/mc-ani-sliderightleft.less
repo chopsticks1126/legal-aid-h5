@@ -1,0 +1,32 @@
+//页面切换动画特效 ,子页面 从右侧滑入  离开时  -> 向右侧滑动离开
+//use as  transition name="mc-ani-sliderightleft"
+
+/*进入*/
+.mc-ani-sliderightleft-enter-active {
+    animation: rightIn 0.3s forwards;
+}
+
+/*离开*/
+.mc-ani-sliderightleft-leave-active {
+    animation: rightOut 0.5s forwards;
+}
+
+@keyframes rightIn{
+    0%{
+        transform: translate3d(100%, 0, 0);
+    }
+    100%{
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes rightOut{
+    0%{
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+    100%{
+        opacity: 0;
+        transform: translate3d(100%, 0, 0);
+    }
+}

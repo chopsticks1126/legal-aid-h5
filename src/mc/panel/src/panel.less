@@ -1,0 +1,61 @@
+@import "../../style/fn";
+
+@lineColor: #E5E5E5;
+
+.mc-panel {
+    margin-bottom: 0.15rem;
+    background-color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .06);
+}
+
+
+.mc-panel-hd {
+    padding: 0.1rem 0.15rem 0.1rem;
+    color: @globalTextColor;
+    font-size: 0.14rem;
+    position: relative;
+    &:after {
+        .setBottomLine(@lineColor);
+    }
+}
+
+.mc-panel-bd{
+    padding: 0.15rem;
+}
+
+.mc-panel-ft {
+    padding: 0.1rem 0.15rem 0.12rem;
+    color: @globalDescColor;
+    font-size: 0.14rem;
+    position: relative;
+
+    &:before {
+        .setTopLine(@lineColor);
+        left: 0.15rem;
+    }
+}
+
+.mc-panel-access .mc-panel-ft {
+    display: block;
+    color: @globalDescColor;
+
+    .setTapColor;
+
+    &:active {
+        background-color: #ECECEC;
+    }
+
+    &:after {
+        content: " ";
+        .setArrow_Wap(right, 8px, @globalDescColor,1px);
+
+        position: absolute;
+        right: 0.15rem;
+        top: 50%;
+        margin-top: -0.04rem;
+    }
+
+}

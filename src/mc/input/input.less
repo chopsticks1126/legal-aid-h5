@@ -1,0 +1,126 @@
+@import "../style/fn.less";
+
+.mc-cell-field {
+    padding: @mcCellGapV @mcCellGapH;
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: @mcCellFontSize;
+
+    &.mc-cell-field-border-bottom:after {
+        .setBottomLine(@mcCellBorderColor);
+        left: @mcCellGapH;
+    }
+
+    &.mc-cell-field-border-top:before {
+        .setTopLine(@mcCellBorderColor);
+        left: @mcCellGapH;
+    }
+
+    //&:after {
+    //    .setBottomLine(@mcCellBorderColor);
+    //    left: @mcCellGapH;
+    //}
+
+    .bd {
+        flex: 1;
+        position: relative;
+        //padding-right: 0.15rem;
+    }
+
+    label {
+        display: block;
+        width: @mcCellLabelWidth;
+        font-size: inherit;
+        .text_wrap();
+    }
+
+    .mc-input {
+        width: 100%;
+        border: 0;
+        outline: 0;
+        -webkit-appearance: none;
+        background-color: transparent;
+        font-size: inherit;
+        color: #303030;
+        height: unit(@mcCellLineHeight, em);
+        line-height: @mcCellLineHeight;
+        text-align: right;
+    }
+
+    .clearicon {
+        color: #999;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        z-index: 100;
+    }
+
+    &.mc-cell-field-full .mc-input {
+        text-align: left;
+    }
+}
+
+//access
+.mc-cell-field-access {
+    .bd {
+        padding-right: 0.05rem;
+    }
+    .ft {
+        width: 0.16rem;
+        position: relative;
+    }
+
+    .ft:after {
+        content: " ";
+        .setArrow_Wap(right, 0.1rem, #C4C4C4, 1px);
+        position: absolute;
+        top: 50%;
+        margin-top: -0.05rem;
+        right: 0.02rem;
+    }
+}
+
+.mc-cell-field-showclear {
+    .mc-input {
+        padding-right: 0.26rem;
+    }
+}
+
+.mc-cell-field-showclear.mc-cell-field-access {
+    .bd {
+        padding-right: 0.30rem;
+    }
+}
+
+.mc-cell-field-disabled {
+    cursor: not-allowed;
+    label {
+        color: #999;
+    }
+    input.mc-input {
+        color: #999;
+    }
+}
+
+input[disabled], input:disabled, input.disabled {
+    color: #999;
+    -webkit-text-fill-color: #999;
+    -webkit-opacity: 1;
+    opacity: 1;
+}
+
+.mc-cell-field ::-webkit-input-placeholder { /* WebKit browsers */
+    color: #aaa;
+}
+.mc-cell-field :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #aaa;
+}
+.mc-cell-field ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #aaa;
+}
+.mc-cell-field :-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #aaa;
+}
+

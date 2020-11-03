@@ -1,0 +1,57 @@
+@import "./fn";
+
+//.mc-info-wrap{
+//    position: fixed;
+//    width: 100%;
+//    text-align: center;
+//}
+
+.mc-info {
+    display: inline-block;
+
+    position: fixed;
+    left: 50%;
+
+    transform: translate(-50%,-50%);
+
+    text-align: center;
+    max-width: 80%;
+
+
+    word-wrap: break-word;
+    box-sizing: border-box;
+
+    padding: 10px 20px;
+    line-height: 1.5;
+    font-size: 13px;
+
+    color: #fff;
+    border-radius: 600px;
+    background: rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    .text_wrap();
+}
+
+//.infoScaleFade-enter-active, .infoScaleFade-leave-active {
+//  transition: transform @animTime
+//}
+//
+//.infoScaleFade-enter, .infoScaleFade-leave-active {
+//  transform:translate(-50%,-50%) scale(0);
+//}
+
+.mc-info.mc-success-color {
+    background-color: @globalSuccessColor;
+}
+
+.mc-info.mc-info-color {
+    background-color: @globalInfoColor;
+}
+
+.mc-info.mc-warning-color {
+    background-color: @globalWarnColor;
+}
+
+.mc-info.mc-error-color {
+    background-color: @globalErrorColor;
+}

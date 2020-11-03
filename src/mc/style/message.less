@@ -1,0 +1,125 @@
+@import "./fn";
+
+@mcDialogLineColor: #D5D5D6;
+@mcDialogLinkColor: @globalInfoColor;
+@mcDialogLinkActiveBc: #EEEEEE;
+
+.mc_message_box {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.mc_message {
+  width: 280px;
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+
+  background-color: #fff;
+
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.mc_message_bd {
+  padding: 20px;
+
+  color: @globalTextColor;
+  word-wrap: break-word;
+  word-break: break-all;
+
+  .mc_message_title {
+    font-size: 17px;
+    line-height: 1.75;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .mc_message_text {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+.mc_message_ft {
+  position: relative;
+  line-height: 42px;
+  font-size: 14px;
+
+  &:after {
+    content: " ";
+    .setTopLine(@mcDialogLineColor);
+  }
+}
+
+.mc_message_ft .mc_btn_dialog {
+  display: block;
+  color: @mcDialogLinkColor;
+  text-decoration: none;
+  .setTapColor;
+  &:active {
+    background-color: @mcDialogLinkActiveBc;
+  }
+}
+
+//confirm style
+.mc_confirm.mc_message_ft {
+  display: flex;
+}
+
+.mc_confirm.mc_message_ft .mc_btn_dialog {
+
+  flex: 1;
+
+  position: relative;
+
+  &:after {
+    content: " ";
+    .setLeftLine(@mcDialogLineColor);
+  }
+  &:first-child {
+    &:after {
+      display: none;
+    }
+  }
+  &.mc_btn_cancel {
+    font-weight: bold;
+  }
+}
+
+//confirm more style
+
+.mc_confirm_more.mc_message_ft .mc_btn_dialog + .mc_btn_dialog {
+  position: relative;
+  &:before {
+    content: " ";
+    .setTopLine(@mcDialogLineColor);
+  }
+}
+
+.mc_confirm_more.mc_message_ft .mc_btn_dialog.mc_btn_cancel {
+  font-weight: bold;
+}
+
+.mc_mask {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  background: rgba(0, 0, 0, .6);
+}

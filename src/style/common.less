@@ -1,0 +1,63 @@
+@import './fn';
+
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+    font-size: 0.14rem;
+    color: @globalTextColor;
+    background-color: @globalBgColor;
+}
+
+#app {
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+.container{
+}
+
+.page_wrap {
+    padding-top: 0.6rem;
+}
+
+.full_page {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.fix_top{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1002;
+}
+
+.dn {
+    display: none;
+}
+
+.pd,
+.space {
+    padding: 0.15rem;
+}
+
+#page_test {
+    position: fixed;
+    bottom: 1rem;
+    left: 0.5rem;
+    width: 30%;
+    z-index: 999;
+    min-height: 0.3rem;
+    opacity: 0.6;
+    background-color: #000;
+    color: #fff;
+    font-size: 0.12rem;
+}
+
+.body-fixed{
+    overflow: hidden;
+    touch-action: none;
+}

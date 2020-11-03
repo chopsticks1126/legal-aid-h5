@@ -1,0 +1,27 @@
+//mcFade
+
+@animTime:0.15s;
+.mcFade-enter-active{
+  animation: mcFadeIn @animTime forwards;
+}
+.mcFade-leave-active{
+  animation: mcFadeOut @animTime forwards;
+}
+
+@keyframes mcFadeIn {
+  0%{
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes mcFadeOut {
+  0%{
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

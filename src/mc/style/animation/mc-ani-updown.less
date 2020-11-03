@@ -1,0 +1,39 @@
+//从下面滑入 ，  离开时  -> 向下收缩离开
+//<transition name="mc-ani-updown">
+
+@animTime:0.3s;
+
+.mc-ani-updown-enter-active{
+  animation: updownIn @animTime forwards;
+}
+.mc-ani-updown-leave-active{
+  animation: updownOut @animTime forwards;
+}
+
+@keyframes updownIn {
+  0%{
+    transform: translate(0, 100%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes updownOut {
+  0%{
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0,100%);
+  }
+}
+
+//or
+
+//.slidetop-enter-active, .slidetop-leave-active {
+//  transition: transform 0.5s
+//}
+//
+//.slidetop-enter, .slidetop-leave-active {
+//  transform: translate(0, -100%);
+//}

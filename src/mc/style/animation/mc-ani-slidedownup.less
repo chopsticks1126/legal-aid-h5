@@ -1,0 +1,42 @@
+//dropdown 动效
+//<transition name="mc-ani-slidedownup">
+//    ...
+//</transition>
+
+.mc-ani-slidedownup-enter-active {
+    animation: mcdropdownUpIn .2s cubic-bezier(.78,.14,.15,.86);
+    animation-fill-mode: both
+}
+
+.mc-ani-slidedownup-leave-active {
+    animation: mcdropdownUpOut .2s cubic-bezier(.78,.14,.15,.86);
+    animation-fill-mode: both
+}
+
+@keyframes mcdropdownUpIn {
+    0% {
+        opacity: 0;
+        transform-origin: 0 0;
+        transform: scaleY(0)
+    }
+
+    to {
+        opacity: 1;
+        transform-origin: 0 0;
+        transform: scaleY(1)
+    }
+}
+
+@keyframes mcdropdownUpOut {
+    0% {
+        opacity: 1;
+        transform-origin: 0 0;
+        transform: scaleY(1)
+    }
+
+    to {
+        opacity: 0;
+        transform-origin: 0 0;
+        transform: scaleY(0)
+    }
+}

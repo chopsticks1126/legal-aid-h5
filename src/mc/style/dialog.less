@@ -1,0 +1,67 @@
+@import "./fn";
+
+@mcDialogLineColor: #D5D5D6;
+@mcDialogLinkColor: @globalInfoColor;
+@mcDialogLinkActiveBc: #EEEEEE;
+
+.mc-dialog-box {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.mc-dialog {
+    width: 70%;
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: #fff;
+
+    padding-top: 10px;
+    border-radius: 6px;
+}
+
+.mc-dialog-close{
+    position: absolute;
+    right: -34px;
+    top: -30px;
+    font-size: 34px;
+    line-height: 1;
+    color: #fff;
+}
+
+.mc-dialog-hd {
+    padding:15px 20px;
+    text-align: center;
+    .mc-dialog-title {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 1;
+    }
+}
+
+.mc-dialog-bd {
+    padding: 10px 20px;
+    color: @globalTextColor;
+    word-wrap: break-word;
+    word-break: break-all;
+
+    text-align: left;
+    font-size: @globalFontSize;
+}
+
+.mc-dialog-ft {
+    position: relative;
+    line-height: 42px;
+    font-size: 14px;
+    width: 100%;
+    padding: 20px 20px;
+}
