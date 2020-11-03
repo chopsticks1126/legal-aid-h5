@@ -5,23 +5,14 @@
     <div class="container-box">
       <div class="userinfo-card">
         <div class="userinfo">
-          <van-image
-            class="userinfo-avatar"
-            round
-            :src="userInfor.imgUrl"
-          />
+          <van-image class="userinfo-avatar" round :src="userInfor.imgUrl" />
           <span class="userinfo-nickname">{{userInfor.nickname}}</span>
         </div>
       </div>
 
       <div class="button-list-item" @click="navToApplication">
         <div class="button-list-item-icon">
-          <van-icon
-            class="item-icon"
-            name="column"
-            size="0.5rem"
-            color="#e4c561"
-          />
+          <van-icon class="item-icon" name="column" size="0.5rem" color="#e4c561" />
         </div>
         <div class="button-list-item-text">
           <div class="button-list-item-text-main">网上预申请</div>
@@ -32,12 +23,7 @@
 
       <div class="button-list-item" @click="navToApplicationRecord">
         <div class="button-list-item-icon">
-          <van-icon
-            class="item-icon"
-            name="column"
-            size="0.5rem"
-            color="#e4c561"
-          />
+          <van-icon class="item-icon" name="column" size="0.5rem" color="#e4c561" />
         </div>
         <div class="button-list-item-text">
           <div class="button-list-item-text-main">申请记录</div>
@@ -50,22 +36,20 @@
 </template>
 
 <script>
-import {
- getInfos,
-} from "@/api/legalaid/legalaid";
+import { getInfos } from '@/api/legalaid/legalaid'
 export default {
-  name: "Applys",
+  name: 'Applys',
   data() {
     return {
       list: [],
       loading: false,
       finished: false,
-      applicationId:'',
-      userInfor:{
-          imgUrl:'https://img.yzcdn.cn/vant/cat.jpeg',
-          nickname:'钱钱某',
-      },
-    };
+      applicationId: '',
+      userInfor: {
+        imgUrl: 'https://img.yzcdn.cn/vant/cat.jpeg',
+        nickname: '钱钱某'
+      }
+    }
   },
   created() {
     //    getInfos().then((res) => {
@@ -78,13 +62,13 @@ export default {
       let token = localStorage.getItem('token')
       this.init(token)//根据token 获取用户个人信息
     //    this.applicationId = localStorage.getItem('applicationId')
-      console.log('获取到用户的信息',this.applicationId);
+    console.log('获取到用户的信息', this.applicationId)
   },
   methods: {
-      init(token){
-            //赋值给头像 单点登录
-            // this.userInfor
-      },
+    init(token) {
+      //赋值给头像 单点登录
+      // this.userInfor
+    },
     //网上申请
     navToApplication() {
       this.$router.push({ name: 'Home',params:{applicationId:this.applicationId} });

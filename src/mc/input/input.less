@@ -67,6 +67,7 @@
     .bd {
         padding-right: 0.05rem;
     }
+
     .ft {
         width: 0.16rem;
         position: relative;
@@ -96,31 +97,41 @@
 
 .mc-cell-field-disabled {
     cursor: not-allowed;
+
     label {
         color: #999;
     }
+
     input.mc-input {
         color: #999;
     }
 }
 
-input[disabled], input:disabled, input.disabled {
+input[disabled],
+input:disabled,
+input.disabled {
     color: #999;
     -webkit-text-fill-color: #999;
     -webkit-opacity: 1;
     opacity: 1;
 }
 
-.mc-cell-field ::-webkit-input-placeholder { /* WebKit browsers */
-    color: #aaa;
-}
-.mc-cell-field :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color: #aaa;
-}
-.mc-cell-field ::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color: #aaa;
-}
-.mc-cell-field :-ms-input-placeholder { /* Internet Explorer 10+ */
+.mc-cell-field ::-webkit-input-placeholder {
+    /* WebKit browsers */
     color: #aaa;
 }
 
+.mc-cell-field :-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: #aaa;
+}
+
+.mc-cell-field ::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #aaa;
+}
+
+.mc-cell-field :-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: #aaa;
+}
