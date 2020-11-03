@@ -1,5 +1,5 @@
 <style lang="less">
-@import "../style/fn";
+@import '../style/fn';
 
 .container {
   width: 100%;
@@ -10,6 +10,9 @@
   }
   .van-field__control {
     border: 1px solid #ccc !important;
+  }
+  .van-field__label {
+    color: #303030 !important;
   }
   .van-cell--required::before {
     position: unset;
@@ -24,12 +27,6 @@
     width: 100%;
     height: 35px;
     margin-bottom: 15px;
-  }
-  .van-cell-text {
-    padding: 12rpx 10rpx;
-    color: #969696;
-    font-size: 18px;
-    background: #efeff0;
   }
 }
 </style>
@@ -154,119 +151,36 @@
     </div>
     <div class="container-box" v-else>
       <van-cell-group title="个人信息" class="group-container">
-        <van-cell
-          title="区域"
-          readonly="true"
-          :value="addForm.applicantAreaId"
-        />
-        <van-cell
-          required
-          is-link
-          :value="applicantIdTypeStr"
-          title="证件类型"
-          @click="idTypeShow = true"
-        />
-        <van-action-sheet
-          v-model="idTypeShow"
-          :actions="idTypeColumns"
-          @select="idTypeOnChange"
-        />
-        <mc-input
-          required
-          label="证件号码"
-          v-model="addForm.applicantIdNo"
-        ></mc-input>
-        <mc-input
-          required
-          label="姓名"
-          v-model="addForm.applicantFullName"
-        ></mc-input>
-        <mc-input
-          required
-          label="年龄"
-          v-model="addForm.applicantAge"
-        ></mc-input>
-        <van-cell
-          required
-          is-link
-          title="性別"
-          :value="applicantSexStr"
-          @click="modalSexShow = true"
-        />
-        <van-action-sheet
-          v-model="modalSexShow"
-          :actions="sexColumns"
-          @select="sexOnChange"
-        />
-        <mc-input
-          required
-          label="民族"
-          v-model="addForm.applicantNation"
-        ></mc-input>
-        <mc-input
-          required
-          label="联系地址"
-          v-model="addForm.applicantAddress"
-        ></mc-input>
-        <mc-input
-          required
-          label="手机号码"
-          v-model="addForm.applicantPhone"
-        ></mc-input>
+        <van-cell title="区域" readonly="true" :value="addForm.applicantAreaId" />
+        <van-cell required is-link :value="applicantIdTypeStr" title="证件类型" @click="idTypeShow = true" />
+        <van-action-sheet v-model="idTypeShow" :actions="idTypeColumns" @select="idTypeOnChange" />
+        <mc-input required label="证件号码" v-model="addForm.applicantIdNo" placeholder="请输入证件号码"></mc-input>
+        <mc-input required label="姓名" v-model="addForm.applicantFullName" placeholder="请输入姓名"></mc-input>
+        <mc-input required label="年龄" v-model="addForm.applicantAge" placeholder="请输入年龄"></mc-input>
+        <van-cell required is-link title="性別" :value="applicantSexStr" @click="modalSexShow = true" />
+        <van-action-sheet v-model="modalSexShow" :actions="sexColumns" @select="sexOnChange" />
+        <mc-input required label="民族" v-model="addForm.applicantNation" placeholder="请输入民族"></mc-input>
+        <mc-input required label="联系地址" v-model="addForm.applicantAddress" placeholder="请输入联系地址"></mc-input>
+        <mc-input required label="手机号码" v-model="addForm.applicantPhone" placeholder="请输入手机号码"></mc-input>
         <van-cell required title="已仲裁或起诉">
-          <van-switch
-            v-model="applicantSuedCheck"
-            size="24px"
-            @change="onChangeApplicantSued"
-          />
+          <van-switch v-model="applicantSuedCheck" size="24px" @change="onChangeApplicantSued" />
         </van-cell>
-        <van-cell
-          required
-          is-link
-          :value="caseTypeStr"
-          title="案件类型"
-          @click="caseTypeShow = true"
-        />
-        <van-action-sheet
-          v-model="caseTypeShow"
-          :actions="caseTypeColumns"
-          @select="caseTypeOnChange"
-        />
-        <van-field
-          required
-          label="案件简介"
-          v-model="addForm.caseDescription"
-          class="textarea-min150"
-          type="textarea"
-          right-icon="warning-o"
-          placeholder="案件简介"
-          @click-right-icon="onClickCaseDescIcon"
-        />
+        <van-cell required is-link :value="caseTypeStr" title="案件类型" @click="caseTypeShow = true" />
+        <van-action-sheet v-model="caseTypeShow" :actions="caseTypeColumns" @select="caseTypeOnChange" />
+        <van-field required label="案件简介" v-model="addForm.caseDescription" class="textarea-min150" type="textarea" right-icon="warning-o" placeholder="案件简介" @click-right-icon="onClickCaseDescIcon" />
 
         <div style="background: #fff; padding: 0 0.15rem">
           <p style="font-size: 0.13rem; padding-bottom: 0.3rem">
             请描述案件发生时间，地点及简介
           </p>
-          <i style="font-size: 0.12rem"
-            >注意:如果有疑问请咨询园区智慧法律援助中心66683798</i
-          >
+          <i style="font-size: 0.12rem">注意:如果有疑问请咨询园区智慧法律援助中心66683798</i>
         </div>
 
         <div style="background: #fff">
           <div style="display: flex; padding: 0.15rem 0.15rem">
-            <mc-btn
-              style="flex: 1; margin-right: 1rem"
-              type="warning"
-              @click="saveDraftApplicationInfo"
-            >
-              暂存草稿</mc-btn
-            >
-            <mc-btn
-              style="flex: 1"
-              type="success"
-              @click="navToApplicationUpload"
-              >下一步</mc-btn
-            >
+            <mc-btn style="flex: 1; margin-right: 1rem" type="warning" @click="saveDraftApplicationInfo">
+              暂存草稿</mc-btn>
+            <mc-btn style="flex: 1" type="success" @click="navToApplicationUpload">下一步</mc-btn>
           </div>
         </div>
       </van-cell-group>
@@ -448,11 +362,17 @@ export default {
       console.log(this.addForm);
       if (this.saveValidation()) {
         submitFirstApplication(this.addForm).then((res) => {
+          debugger;
           console.log(res);
-          this.$router.push({
-            name: "Upload",
-            params: { applicationId: this.applicationId },
-          });
+          if (null != res) {
+            this.applicationId = res.id;
+            this.$router.push({
+              name: "Upload",
+              params: { applicationId: this.applicationId },
+            });
+          } else {
+            Toast("提交失败");
+          }
         });
       }
     },
@@ -462,6 +382,7 @@ export default {
         submitFirstApplication(this.addForm).then((res) => {
           console.log(res);
           if (null != res) {
+            this.applicationId = res.id;
             Toast("提交成功！");
           } else {
             Toast("提交失败！");

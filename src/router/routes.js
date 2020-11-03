@@ -3,7 +3,6 @@ import Home from '../pages/Home.vue'
 import Upload from '../pages/Upload.vue'
 import ListInfo from "../pages/ListInfo.vue";
 import Applys from "../pages/Applys.vue";
-import Detailed from "../pages/Detailed.vue";
 
 
 
@@ -34,10 +33,6 @@ export default [
         name: "ListInfo",
         component: ListInfo
     },
-    {
-        path: '/detailed',
-        name: 'Detailed',
-        component: Detailed
-    },
+
 
 ]

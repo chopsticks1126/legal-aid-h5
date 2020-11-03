@@ -68,13 +68,12 @@ export default {
     };
   },
   created() {
-      debugger
     //    getInfos().then((res) => {
     //        debugger
     //    });
       //获取用户信息
       //得到本系统信息
-      this.applicationId ="1323178269427765248";
+    //   this.applicationId ="1323532514526105600";
       console.log('获取到用户的信息 token',localStorage.getItem('token'));
       let token = localStorage.getItem('token')
       this.init(token)//根据token 获取用户个人信息
@@ -89,10 +88,12 @@ export default {
     //网上申请
     navToApplication() {
       this.$router.push({ name: 'Home',params:{applicationId:this.applicationId} });
+      console.log('applicationId',this.applicationId);
     },
     //记录
     navToApplicationRecord() {
       this.$router.push({ name: 'ListInfo',params:{applicationId:this.applicationId} });
+      console.log('applicationId',this.applicationId);
     },
   },
 };
@@ -146,7 +147,7 @@ export default {
         padding-left: 0.03rem;
       }
       .button-list-item-text {
-        padding: 0.1rem 0.4rem;
+        padding: 0.1rem 0.2rem 0.1rem 0.4rem;
       }
       .button-list-item-text-main {
         margin: auto auto;

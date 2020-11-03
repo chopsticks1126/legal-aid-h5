@@ -4,6 +4,7 @@ import request from '@/util/http'
 export function getDataInfo(formData) {
     return request({
         url: "/oneNet/"+formData,
+        headers:{'id':10001},
         method: 'get',
     })
 }
@@ -11,7 +12,6 @@ export function getDataInfo(formData) {
 export function geListInfo() {
     return request({
         url: "/oneNet?size=100&sort=createTime,desc",
-        // headers:{'id':'1323178269427765248'},
         headers:{'id':10001},
         method: 'get',
     })
@@ -33,8 +33,8 @@ export function uploadFile(parameter) {
     let formData = new FormData();
     formData.append('file',parameter.file.file);
     formData.append('useType',parameter.useType);
-    formData.append('referenceId',1);//具体到某个人的id
-    formData.append('name',"");
+    formData.append('referenceId',parameter.referenceId);//具体到某个人的id
+    formData.append('name',parameter.fileName);
     return request({
         url: "/oneNet/files",
         headers:{'content-type':'multipart/form-data','id':10001},
@@ -47,7 +47,7 @@ export function getFile(formData) {
     return request({
         url: "/oneNet/files?useType="+formData.useType+"&referenceId="+formData.referenceId,
         method: 'get',
-        // params:formData
+        headers:{'id':10001},
     })
 }
 
@@ -69,13 +69,3 @@ export function submitApplicationFiles(parameter) {
     })
 }
 
-export function checklawer(parameter) {
-    let formData = new FormData();
-    // formData.append('data',parameter);
-    return request({
-        url: "/api/userapplication/checklawer",
-        // headers:{'Content-Type':'multipart/form-data'},
-        post: 'post',
-        data:formData,
-    })
-}

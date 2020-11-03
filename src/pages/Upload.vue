@@ -168,34 +168,54 @@ export default {
     },
     //上传证件
     afterReadIdCard(file) {
-      let parameter = {};
-      parameter.file = file;
-      parameter.useType = 1;
-      parameter.fileName = Date.parse(new Date());
-      uploadFile(parameter).then((res) => {
-        console.log(res);
-        this.getfile(1);
-      });
+         this.uploadFile(file,2);
+    //   let parameter = {};
+    //   parameter.file = file;
+    //   parameter.useType = 1;
+    //   parameter.fileName = Date.parse(new Date());
+    //   parameter.referenceId =this.applicationId;
+    //   uploadFile(parameter).then((res) => {
+    //     console.log(res);
+    //     this.getfile(1);
+    //   });
     },
     //贫困照片
     afterReadEcoProofCard(file) {
-      let parameter = {};
-      parameter.file = file;
-      parameter.useType = 2;
-      parameter.fileName = Date.parse(new Date());
-      uploadFile(parameter).then((res) => {
-        console.log(res);
+         this.uploadFile(file,2);
+    //   let parameter = {};
+    //   parameter.file = file;
+    //   parameter.useType = 2;
+    //   parameter.fileName = Date.parse(new Date());
+    //    parameter.referenceId =this.applicationId;
+    //   uploadFile(parameter).then((res) => {
+    //     console.log(res);
 
-        this.getfile(2);
-        debugger;
-      });
+    //     this.getfile(2);
+    //     debugger;
+    //   });
     },
     //证据照片
     afterReadOtherProof(file) {
-      let parameter = {};
+        this.uploadFile(file,3);
+    //   let parameter = {};
+    //   parameter.file = file;
+    //   parameter.useType = 3;
+    //   parameter.fileName = Date.parse(new Date());
+    //    parameter.referenceId =this.applicationId;
+    //   uploadFile(parameter).then((res) => {
+    //     console.log(res);
+    //     this.getfile(3);
+    //     debugger;
+    //   });
+    //   console.log(file);
+    },
+    //上传图片
+    uploadFile(file,useType){
+        let parameter = {};
       parameter.file = file;
-      parameter.useType = 3;
+      parameter.useType = useType;
       parameter.fileName = Date.parse(new Date());
+       parameter.referenceId =this.applicationId;
       uploadFile(parameter).then((res) => {
         console.log(res);
         this.getfile(3);

@@ -1,0 +1,151 @@
+/*=============variable=====================*/
+/*=====@mcCell=====*/
+/*==============mixin==================*/
+.clearfix:after,
+.clearfix:before {
+  display: table;
+  content: " ";
+}
+.clearfix:after {
+  clear: both;
+}
+/*
+单词换行
+1，word-break:break-all
+例如div宽200px，它的内容就会到200px自动换行，
+如果该行末端有个英文单词很长（congratulation等），它会把单词截断，
+变成该行末端为conra(congratulation的前端部分)，
+下一行为tulation（conguatulation）的后端部分了。
+
+2，word-wrap:break-word 例子与上面一样，
+ 但区别就是它会把congratulation整个单词看成一个整体，
+ 如果该行末端宽度不够显示整个单词，它会自动把整个单词放到下一行，而不会把单词截断掉的。
+*/
+.mc-cell-field {
+  padding: 0.09rem 0.15rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 0.15rem;
+}
+.mc-cell-field.mc-cell-field-border-bottom:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  border-bottom: 1px solid #D9D9D9;
+  color: #D9D9D9;
+  transform-origin: 0 100%;
+  transform: scaleY(0.5);
+  z-index: 2;
+  left: 0.15rem;
+}
+.mc-cell-field.mc-cell-field-border-top:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  border-top: 1px solid #D9D9D9;
+  color: #D9D9D9;
+  transform-origin: 0 0;
+  transform: scaleY(0.5);
+  z-index: 2;
+  left: 0.15rem;
+}
+.mc-cell-field .bd {
+  flex: 1;
+  position: relative;
+}
+.mc-cell-field label {
+  display: block;
+  width: 1.3rem;
+  font-size: inherit;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.mc-cell-field .mc-input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  -webkit-appearance: none;
+  background-color: transparent;
+  font-size: inherit;
+  color: #303030;
+  height: 1.73333333em;
+  line-height: 1.73333333;
+}
+.mc-cell-field .clearicon {
+  color: #999;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 100;
+}
+.mc-cell-field.mc-cell-field-full .mc-input {
+  text-align: left;
+}
+.mc-cell-field-access .bd {
+  padding-right: 0.05rem;
+}
+.mc-cell-field-access .ft {
+  width: 0.16rem;
+  position: relative;
+}
+.mc-cell-field-access .ft:after {
+  content: " ";
+  display: inline-block;
+  transform: rotate(45deg);
+  height: 0.1rem;
+  width: 0.1rem;
+  border-width: 1px 1px 0 0;
+  border-color: #C4C4C4;
+  border-style: solid;
+  position: absolute;
+  top: 50%;
+  margin-top: -0.05rem;
+  right: 0.02rem;
+}
+.mc-cell-field-showclear .mc-input {
+  padding-right: 0.26rem;
+}
+.mc-cell-field-showclear.mc-cell-field-access .bd {
+  padding-right: 0.3rem;
+}
+.mc-cell-field-disabled {
+  cursor: not-allowed;
+}
+.mc-cell-field-disabled label {
+  color: #999;
+}
+.mc-cell-field-disabled input.mc-input {
+  color: #999;
+}
+input[disabled],
+input:disabled,
+input.disabled {
+  color: #999;
+  -webkit-text-fill-color: #999;
+  -webkit-opacity: 1;
+  opacity: 1;
+}
+.mc-cell-field ::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #aaa;
+}
+.mc-cell-field :-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #aaa;
+}
+.mc-cell-field ::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #aaa;
+}
+.mc-cell-field :-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #aaa;
+}

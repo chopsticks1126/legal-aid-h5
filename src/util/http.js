@@ -28,7 +28,9 @@ const request = axios.create(options)
 request.interceptors.request.use(
     config => {
         console.log('request.interceptors')
-        config.headers['APPTOKEN'] ="22222"
+        config.headers['token'] ='22222222222222'
+        // config.headers['token'] =localStorage.getItem('token')
+        // config.headers['id'] =localStorage.getItem('token')
         //添加token
         if (store.getters.token) {
             config.headers['APPTOKEN'] = store.getters.token
