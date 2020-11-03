@@ -9,7 +9,7 @@
     padding: -0.1rem 0.15rem 0 0.15rem;
   }
   .van-field__control {
-    border: 1px solid #ccc !important;
+    // border: 1px solid #ccc !important;
   }
   .van-field__label {
     color: #303030 !important;
@@ -91,14 +91,14 @@
         <van-cell title="区域" readonly="true" :value="addForm.applicantAreaId" />
         <van-cell required is-link :value="applicantIdTypeStr" title="证件类型" @click="idTypeShow = true" />
         <van-action-sheet v-model="idTypeShow" :actions="idTypeColumns" @select="idTypeOnChange" />
-        <mc-input required label="证件号码" v-model="addForm.applicantIdNo" placeholder="请输入证件号码"></mc-input>
-        <mc-input required label="姓名" v-model="addForm.applicantFullName" placeholder="请输入姓名"></mc-input>
-        <mc-input required label="年龄" v-model="addForm.applicantAge" placeholder="请输入年龄"></mc-input>
+        <van-field required label="证件号码" v-model="addForm.applicantIdNo" placeholder="请输入证件号码"></van-field>
+        <van-field required label="姓名" v-model="addForm.applicantFullName" placeholder="请输入姓名"></van-field>
+        <van-field required label="年龄" v-model="addForm.applicantAge" placeholder="请输入年龄"></van-field>
         <van-cell required is-link title="性別" :value="applicantSexStr" @click="modalSexShow = true" />
         <van-action-sheet v-model="modalSexShow" :actions="sexColumns" @select="sexOnChange" />
-        <mc-input required label="民族" v-model="addForm.applicantNation" placeholder="请输入民族"></mc-input>
-        <mc-input required label="联系地址" v-model="addForm.applicantAddress" placeholder="请输入联系地址"></mc-input>
-        <mc-input required label="手机号码" v-model="addForm.applicantPhone" placeholder="请输入手机号码"></mc-input>
+        <van-field required label="民族" v-model="addForm.applicantNation" placeholder="请输入民族"></van-field>
+        <van-field required label="联系地址" v-model="addForm.applicantAddress" placeholder="请输入联系地址"></van-field>
+        <van-field required label="手机号码" v-model="addForm.applicantPhone" placeholder="请输入手机号码"></van-field>
         <van-cell required title="已仲裁或起诉">
           <van-switch v-model="applicantSuedCheck" size="24px" @change="onChangeApplicantSued" />
         </van-cell>
